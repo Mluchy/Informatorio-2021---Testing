@@ -30,7 +30,7 @@ public class BankAccount {
     }
 
     public void Credit(double amount) throws Exception {
-        if (amount < 0) throw new ArgumentOutOfRangeException("amount");
+        if (amount < 0) throw new ArgumentOutOfRangeException("Credit amount less than zero");
         this.m_balance += amount;
     }
 

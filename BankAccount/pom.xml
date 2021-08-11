@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>HellowWorld</artifactId>
+  <artifactId>BankAccount</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>HellowWorld</name>
+  <name>BankAccount</name>
 
 
   <properties>

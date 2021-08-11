@@ -19,7 +19,7 @@ class BankAccountTest {
         account.Debit(debitAmount);
         // Assert
         double actual = account.getBalance();
-        assertEquals(expected, actual);
+        assertEquals(expected, actual, 0.001);
 
     }
 
@@ -51,6 +51,40 @@ class BankAccountTest {
 
         // Assert
         assertEquals("Debit amount exceeds balance", exception.getMessage());
+    }
+
+    @Test
+    public void Credit_WithValidAmount() throws Exception {
+
+        // Arrange
+        double beginningBalance = 10.99;
+        double creditAmount = 16;
+        double expected = 26.99;
+        BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+        // Act
+        account.Credit(creditAmount);
+
+        // Assert
+        double actual = account.getBalance();
+        assertEquals(expected, actual, 0.001);
+
+    }
+
+    @Test
+    public void Credit_WithNegativeAmount() throws Exception {
+
+        // Arrange
+        double beginningBalance = 10.99;
+        double creditAmount = -16;
+
+        final BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+        // Act
+        Exception exception = assertThrows(ArgumentOutOfRangeException.class, () -> account.Credit(creditAmount));
+
+        // Assert
+        assertEquals("Credit amount less than zero", exception.getMessage());
     }
 
 }
